@@ -1,0 +1,13 @@
+.env
+credentials.json
+token.json
+.tmp/
+__pycache__/
+*.pyc
+.DS_Store
+tools/
+workflows/
+CLAUDE.md
+index (2).html
+Open\ Villa\ Sue.app/
+Open\ Villa\ Sue.command
