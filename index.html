@@ -278,15 +278,36 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
   .nav-links{display:none}
   .mobile-menu-btn{display:block}
   section,.booking-section,.gallery-header,.map-section,footer{padding-left:24px;padding-right:24px}
-  .hero-content{bottom:60px;left:24px}
-  .hero-title{font-size:clamp(48px,12vw,90px);letter-spacing:8px}
+  section{padding-top:64px;padding-bottom:64px}
+  .booking-section{padding-top:64px;padding-bottom:64px}
+  .map-section{padding-top:64px;padding-bottom:64px}
+  footer{padding-top:48px;padding-bottom:32px}
+  .gallery-section{padding-top:48px;padding-bottom:48px}
+  .gallery-header{padding-bottom:32px}
+  .booking-widget-container{padding:24px 16px}
+  .map-frame{height:260px}
+  .features-list{grid-template-columns:1fr}
+  .hero-content{bottom:48px;left:24px}
+  .hero-title{font-size:clamp(42px,11vw,80px);letter-spacing:4px}
+  .hero-eyebrow{letter-spacing:3px}
   .hero-cta{flex-direction:column;align-items:flex-start}
   .gallery-track{grid-template-columns:1fr}
   .gallery-item:first-child{grid-column:span 1;aspect-ratio:4/3}
   .booking-form{grid-template-columns:1fr}
   .booking-submit{grid-column:span 1}
   .footer-grid{grid-template-columns:1fr}
+  .modal-box{padding:36px 24px}
   .scroll-hint{display:none}
+}
+@media(max-width:480px){
+  .hero-title{font-size:clamp(36px,10vw,60px);letter-spacing:3px}
+  .section-title{font-size:clamp(30px,7vw,42px)}
+  .btn-primary,.btn-outline{padding:14px 28px;font-size:10px}
+  .booking-widget-container{padding:20px 14px}
+  .cal-day{font-size:12px}
+  .cal-month-label{font-size:17px}
+  .nearby-num{font-size:22px}
+  .footer-logo{font-size:28px}
 }
 </style>
 </head>
