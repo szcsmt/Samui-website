@@ -287,12 +287,13 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
   .booking-widget-container{padding:24px 16px}
   .map-frame{height:260px}
   .features-list{grid-template-columns:1fr}
-  .hero{height:60svh;min-height:500px}
-  .hero-video{object-position:center top}
-  .hero-content{bottom:36px;left:24px}
-  .hero-title{font-size:clamp(42px,11vw,80px);letter-spacing:4px}
+  .hero{height:auto;min-height:0;display:flex;flex-direction:column}
+  .hero-video{position:relative;width:100%;height:56.25vw;min-width:unset;min-height:unset;transform:none;top:auto;left:auto;object-fit:cover;flex-shrink:0}
+  .hero-overlay{position:absolute;top:0;left:0;right:0;height:56.25vw;bottom:auto}
+  .hero-content{position:relative;bottom:auto;left:auto;background:#0a0a08;padding:28px 24px 44px;text-align:left}
+  .hero-title{font-size:clamp(38px,10vw,72px);letter-spacing:4px}
   .hero-eyebrow{letter-spacing:3px}
-  .hero-cta{flex-direction:column;align-items:flex-start}
+  .hero-cta{flex-direction:column;align-items:flex-start;gap:12px}
   .gallery-track{grid-template-columns:1fr}
   .gallery-item:first-child{grid-column:span 1;aspect-ratio:4/3}
   .booking-form{grid-template-columns:1fr}
