@@ -68,6 +68,7 @@ nav.scrolled{background:rgba(26,26,24,.95);backdrop-filter:blur(12px);padding:18
 /* HERO */
 .hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:#0a0a08}
 .hero-video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover;display:block}
+.hero-video-portrait{width:100%;height:100%;min-width:unset;min-height:unset;object-fit:cover;object-position:center center}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,8,.25) 0%,rgba(10,10,8,.1) 45%,rgba(10,10,8,.65) 100%)}
 
 /* Title reveal — matches Elyse style */
@@ -342,6 +343,9 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
 <section class="hero" id="home">
   <video class="hero-video" id="heroVideo" muted playsinline preload="auto">
     <source src="Video.mp4" type="video/mp4">
+  </video>
+  <video class="hero-video hero-video-portrait" id="heroVideoPortrait" muted playsinline preload="auto" style="display:none">
+    <source src="video_z4d8Ndkz.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content" id="heroContent">
@@ -667,13 +671,37 @@ function setLang(lang) {
 }
 
 // ─── HERO VIDEO + title reveal
-const video = document.getElementById('heroVideo');
+const videoLandscape = document.getElementById('heroVideo');
+const videoPortrait = document.getElementById('heroVideoPortrait');
 const heroContent = document.getElementById('heroContent');
 const scrollHint = document.getElementById('scrollHint');
 
-video.addEventListener('loadedmetadata', () => {
-  video.play();
-});
+function isMobilePortrait() {
+  return window.matchMedia('(max-width: 768px) and (orientation: portrait)').matches ||
+         (window.innerWidth <= 768 && window.innerHeight > window.innerWidth);
+}
+
+function switchHeroVideo() {
+  const usePortrait = isMobilePortrait();
+  if (usePortrait) {
+    videoLandscape.style.display = 'none';
+    videoLandscape.pause();
+    videoPortrait.style.display = 'block';
+    videoPortrait.play().catch(() => {});
+  } else {
+    videoPortrait.style.display = 'none';
+    videoPortrait.pause();
+    videoLandscape.style.display = 'block';
+    videoLandscape.play().catch(() => {});
+  }
+}
+
+videoLandscape.addEventListener('loadedmetadata', () => { videoLandscape.play().catch(() => {}); });
+videoPortrait.addEventListener('loadedmetadata', () => { if (isMobilePortrait()) videoPortrait.play().catch(() => {}); });
+
+switchHeroVideo();
+window.addEventListener('resize', switchHeroVideo);
+window.addEventListener('orientationchange', () => setTimeout(switchHeroVideo, 200));
 
 // Reveal title after 1.5s regardless of video state
 setTimeout(() => {
