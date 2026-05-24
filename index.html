@@ -700,13 +700,18 @@ function switchHeroVideo() {
   scrubHeroVideo();
 }
 
-// Seek to first frame when loaded
-function seekToStart(vid) {
-  vid.pause();
-  vid.currentTime = 0;
+// Play+pause trick: iOS requires at least one play() before currentTime seeking works
+function primeVideo(vid) {
+  const p = vid.play();
+  if (p !== undefined) {
+    p.then(() => { vid.pause(); vid.currentTime = 0; }).catch(() => { vid.currentTime = 0; });
+  } else {
+    vid.pause();
+    vid.currentTime = 0;
+  }
 }
-videoLandscape.addEventListener('loadedmetadata', () => seekToStart(videoLandscape));
-videoPortrait.addEventListener('loadedmetadata', () => seekToStart(videoPortrait));
+videoLandscape.addEventListener('loadedmetadata', () => primeVideo(videoLandscape));
+videoPortrait.addEventListener('loadedmetadata', () => primeVideo(videoPortrait));
 
 switchHeroVideo();
 window.addEventListener('resize', () => { switchHeroVideo(); });
@@ -722,9 +727,9 @@ function scrubHeroVideo() {
   const progress = Math.max(0, Math.min(1, scrollY / heroScrollable));
 
   const vid = isMobilePortrait() ? videoPortrait : videoLandscape;
-  if (vid.duration && vid.readyState >= 1) {
+  if (vid.duration && isFinite(vid.duration)) {
     const target = progress * vid.duration;
-    if (Math.abs(vid.currentTime - target) > 0.04) {
+    if (Math.abs(vid.currentTime - target) > 0.033) {
       vid.currentTime = target;
     }
   }
