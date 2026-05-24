@@ -66,7 +66,8 @@ nav.scrolled{background:rgba(26,26,24,.95);backdrop-filter:blur(12px);padding:18
 .lang-btn:hover{color:rgba(255,255,255,.9)}
 
 /* HERO */
-.hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:#0a0a08}
+.hero{position:relative;height:300vh;background:#0a0a08}
+.hero-sticky{position:sticky;top:0;height:100vh;height:100svh;min-height:600px;overflow:hidden}
 .hero-video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover;display:block}
 .hero-video-portrait{width:100%;height:100%;min-width:unset;min-height:unset;object-fit:cover;object-position:center center}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,8,.25) 0%,rgba(10,10,8,.1) 45%,rgba(10,10,8,.65) 100%)}
@@ -288,8 +289,10 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
   .booking-widget-container{padding:24px 16px}
   .map-frame{height:260px}
   .features-list{grid-template-columns:1fr}
-  .hero{height:100svh;min-height:600px;display:block}
+  .hero{height:200vh}
+  .hero-sticky{height:100svh;min-height:600px}
   .hero-video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover;object-position:center center}
+  .hero-video-portrait{width:100%;height:100%;min-width:unset;min-height:unset;object-fit:cover;object-position:center center}
   .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,8,.35) 0%,rgba(10,10,8,.05) 40%,rgba(10,10,8,.75) 75%,rgba(10,10,8,.92) 100%)}
   .hero-content{position:absolute;bottom:52px;left:24px;right:24px}
   .hero-title{font-size:clamp(44px,11vw,80px);letter-spacing:6px}
@@ -339,28 +342,30 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
   </button>
 </nav>
 
-<!-- HERO: video stops at 6s, then title reveals -->
+<!-- HERO: scroll-scrub video -->
 <section class="hero" id="home">
-  <video class="hero-video" id="heroVideo" muted playsinline preload="auto">
-    <source src="Video.mp4" type="video/mp4">
-  </video>
-  <video class="hero-video hero-video-portrait" id="heroVideoPortrait" muted playsinline preload="auto" style="display:none">
-    <source src="video_z4d8Ndkz.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-content" id="heroContent">
-    <p class="hero-eyebrow" id="hero-eyebrow">Koh Samui · Bophut · Thailand</p>
-    <h1 class="hero-title">Villa Sue</h1>
-    <p class="hero-subtitle" id="hero-sub">Private Pool Villa &nbsp;·&nbsp; 4 Bedrooms &nbsp;·&nbsp; Sea Views</p>
-    <div class="hero-divider"></div>
-    <div class="hero-cta">
-      <a href="#booking" class="btn-primary" id="hero-cta1">Reserve Your Stay</a>
-      <a href="#about" class="btn-outline" id="hero-cta2">Discover More</a>
+  <div class="hero-sticky">
+    <video class="hero-video" id="heroVideo" muted playsinline preload="auto">
+      <source src="Video.mp4" type="video/mp4">
+    </video>
+    <video class="hero-video hero-video-portrait" id="heroVideoPortrait" muted playsinline preload="auto" style="display:none">
+      <source src="video_z4d8Ndkz.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content" id="heroContent">
+      <p class="hero-eyebrow" id="hero-eyebrow">Koh Samui · Bophut · Thailand</p>
+      <h1 class="hero-title">Villa Sue</h1>
+      <p class="hero-subtitle" id="hero-sub">Private Pool Villa &nbsp;·&nbsp; 4 Bedrooms &nbsp;·&nbsp; Sea Views</p>
+      <div class="hero-divider"></div>
+      <div class="hero-cta">
+        <a href="#booking" class="btn-primary" id="hero-cta1">Reserve Your Stay</a>
+        <a href="#about" class="btn-outline" id="hero-cta2">Discover More</a>
+      </div>
     </div>
-  </div>
-  <div class="scroll-hint" id="scrollHint">
-    <span id="scroll-label">Scroll</span>
-    <div class="scroll-line"></div>
+    <div class="scroll-hint" id="scrollHint">
+      <span id="scroll-label">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
   </div>
 </section>
 
@@ -687,27 +692,67 @@ function switchHeroVideo() {
     videoLandscape.style.display = 'none';
     videoLandscape.pause();
     videoPortrait.style.display = 'block';
-    videoPortrait.play().catch(() => {});
   } else {
     videoPortrait.style.display = 'none';
     videoPortrait.pause();
     videoLandscape.style.display = 'block';
-    videoLandscape.play().catch(() => {});
+  }
+  scrubHeroVideo();
+}
+
+// Seek to first frame when loaded
+function seekToStart(vid) {
+  vid.pause();
+  vid.currentTime = 0;
+}
+videoLandscape.addEventListener('loadedmetadata', () => seekToStart(videoLandscape));
+videoPortrait.addEventListener('loadedmetadata', () => seekToStart(videoPortrait));
+
+switchHeroVideo();
+window.addEventListener('resize', () => { switchHeroVideo(); });
+window.addEventListener('orientationchange', () => setTimeout(switchHeroVideo, 200));
+
+// ─── SCROLL-SCRUB
+const heroSection = document.getElementById('home');
+let scrubRaf = false;
+
+function scrubHeroVideo() {
+  const scrollY = window.scrollY;
+  const heroScrollable = heroSection.offsetHeight - window.innerHeight;
+  const progress = Math.max(0, Math.min(1, scrollY / heroScrollable));
+
+  const vid = isMobilePortrait() ? videoPortrait : videoLandscape;
+  if (vid.duration && vid.readyState >= 1) {
+    const target = progress * vid.duration;
+    if (Math.abs(vid.currentTime - target) > 0.04) {
+      vid.currentTime = target;
+    }
+  }
+
+  // Hero content: reveal at start, fade out as user scrolls into video
+  if (progress < 0.08) {
+    heroContent.classList.add('reveal');
+    heroContent.style.opacity = '';
+    heroContent.style.transform = '';
+  } else {
+    const fade = Math.max(0, 1 - (progress - 0.08) / 0.18);
+    heroContent.style.opacity = fade;
+    heroContent.style.transform = `translateY(${(1 - fade) * 32}px)`;
   }
 }
 
-videoLandscape.addEventListener('loadedmetadata', () => { videoLandscape.play().catch(() => {}); });
-videoPortrait.addEventListener('loadedmetadata', () => { if (isMobilePortrait()) videoPortrait.play().catch(() => {}); });
+window.addEventListener('scroll', () => {
+  if (!scrubRaf) {
+    scrubRaf = true;
+    requestAnimationFrame(() => { scrubHeroVideo(); scrubRaf = false; });
+  }
+}, { passive: true });
 
-switchHeroVideo();
-window.addEventListener('resize', switchHeroVideo);
-window.addEventListener('orientationchange', () => setTimeout(switchHeroVideo, 200));
-
-// Reveal title after 1.5s regardless of video state
+// Reveal title after short delay on load
 setTimeout(() => {
   heroContent.classList.add('reveal');
-  setTimeout(() => scrollHint.classList.add('show'), 1800);
-}, 1500);
+  setTimeout(() => scrollHint.classList.add('show'), 800);
+}, 600);
 
 // ─── NAV SCROLL
 window.addEventListener('scroll', () => {
