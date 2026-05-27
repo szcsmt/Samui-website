@@ -307,7 +307,7 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
 .modal-close-btn:hover{background:var(--gold);color:var(--dark)}
 
 .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px}
-.mobile-menu-btn span{display:block;width:24px;height:1px;background:var(--white);margin:6px 0}
+.mobile-menu-btn span{display:block;width:24px;height:1px;background:var(--white);margin:6px 0;transition:transform .3s,opacity .3s}
 
 @media(max-width:1024px){
   .about-grid,.map-layout{grid-template-columns:1fr;gap:50px}
@@ -850,8 +850,11 @@ window.addEventListener('scroll', () => {
 // ─── MOBILE MENU
 function toggleMobileMenu() {
   const nl = document.getElementById('navLinks');
+  const btn = document.querySelector('.mobile-menu-btn');
   if (nl.style.display === 'flex') {
     nl.style.display = 'none';
+    btn.innerHTML = '<span></span><span></span><span></span>';
+    btn.setAttribute('aria-label','Menu');
   } else {
     nl.style.display = 'flex';
     nl.style.flexDirection = 'column';
@@ -860,6 +863,8 @@ function toggleMobileMenu() {
     nl.style.background = 'rgba(26,26,24,.97)';
     nl.style.padding = '80px 40px 40px';
     nl.style.gap = '24px'; nl.style.zIndex = '99';
+    btn.innerHTML = '<span style="transform:rotate(45deg) translate(5px,5px)"></span><span style="opacity:0"></span><span style="transform:rotate(-45deg) translate(5px,-5px)"></span>';
+    btn.setAttribute('aria-label','Close');
   }
 }
 document.querySelectorAll('#navLinks a').forEach(a => {
