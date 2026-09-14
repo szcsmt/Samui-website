@@ -17,6 +17,8 @@
 <meta property="og:image" content="https://www.villasue.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Villa Sue private pool villa with sun loungers and palm trees, Koh Samui, Thailand">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="ru_RU">
@@ -25,6 +27,7 @@
 <meta name="twitter:title" content="Villa Sue — Private Pool Villa · Koh Samui">
 <meta name="twitter:description" content="4-bedroom luxury villa with private pool and sea views in Bophut, Koh Samui, Thailand.">
 <meta name="twitter:image" content="https://www.villasue.com/og-image.jpg">
+<meta name="twitter:image:alt" content="Villa Sue private pool villa with sun loungers and palm trees, Koh Samui, Thailand">
 <link rel="canonical" href="https://www.villasue.com/">
 <link rel="alternate" hreflang="en" href="https://www.villasue.com/">
 <link rel="alternate" hreflang="de" href="https://www.villasue.com/?lang=de">
@@ -40,6 +43,13 @@
   "description": "4-bedroom luxury private pool villa with sea views in Bophut, Koh Samui, Thailand.",
   "url": "https://www.villasue.com/",
   "email": "samuivillasue@gmail.com",
+  "image": [
+    "https://www.villasue.com/og-image.jpg",
+    "https://www.villasue.com/images/Villa%20Sue%20-%20April%202026%20(10).jpg",
+    "https://www.villasue.com/images/view2-photo.jpg"
+  ],
+  "sameAs": ["https://www.airbnb.com/h/villasue"],
+  "hasMap": "https://www.google.com/maps/place/Samui+Villa+Sue",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "22, 94 Plai Laem Soi 6",
@@ -163,7 +173,6 @@ nav.scrolled{background:rgba(26,26,24,.95);backdrop-filter:blur(12px);padding:18
   from{opacity:0;transform:translateY(60px)}
   to{opacity:1;transform:translateY(0)}
 }
-
 button,a{touch-action:manipulation}
 .btn-primary{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dark);background:var(--gold);padding:16px 40px;text-decoration:none;transition:background .3s,transform .3s;display:inline-block}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
@@ -296,15 +305,6 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
 }
 
 /* SUCCESS MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,10,8,.7);z-index:998;align-items:center;justify-content:center}
-.modal-overlay.open{display:flex}
-.modal-box{background:var(--white);padding:60px;max-width:480px;text-align:center}
-.modal-icon{width:56px;height:56px;background:var(--cream);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
-.modal-icon svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.5}
-.modal-box h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--dark);margin-bottom:14px}
-.modal-box p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:30px}
-.modal-close-btn{background:var(--dark);color:var(--white);border:none;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;padding:14px 36px;cursor:pointer;transition:background .3s}
-.modal-close-btn:hover{background:var(--gold);color:var(--dark)}
 
 .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px}
 .mobile-menu-btn span{display:block;width:24px;height:1px;background:var(--white);margin:6px 0;transition:transform .3s,opacity .3s}
@@ -360,7 +360,6 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
   .section-title{font-size:clamp(30px,8vw,48px)}
   .nearby-list{gap:12px}
   .footer-bottom{flex-direction:column;gap:10px;text-align:center}
-  .modal-box{padding:44px 28px}
 }
 @media(max-width:400px){
   .book-highlights{display:grid;grid-template-columns:1fr 1fr;row-gap:8px}
@@ -454,8 +453,8 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
 <section id="about">
   <div class="about-grid">
     <div class="about-images">
-      <img src="images/about-1.jpg" loading="lazy" alt="Medence kilátás" class="about-img-main">
-      <img src="images/about-2.jpg" loading="lazy" alt="Medence részlet" class="about-img-accent">
+      <img src="images/about-1.jpg" loading="lazy" alt="Villa Sue private pool and terrace seen from the garden, Koh Samui" class="about-img-main">
+      <img src="images/about-2.jpg" loading="lazy" alt="Sun loungers beside the private pool at Villa Sue, Bophut" class="about-img-accent">
     </div>
     <div class="about-text">
       <p class="section-label" id="about-label">The Villa</p>
@@ -481,11 +480,11 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
         </div>
         <div class="feature-item">
           <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-          <div class="feature-text"><strong id="f5t">Fully Equipped Kitchen</strong><span id="f5b"></span></div>
+          <div class="feature-text"><strong id="f5t">Fully Equipped Kitchen</strong><span id="f5b">Oven, induction hob &amp; island bar</span></div>
         </div>
         <div class="feature-item">
           <div class="feature-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <div class="feature-text"><strong id="f6t">High-Speed WiFi</strong><span id="f6b"></span></div>
+          <div class="feature-text"><strong id="f6t">High-Speed WiFi</strong><span id="f6b">Wi-Fi throughout the villa</span></div>
         </div>
       </div>
     </div>
@@ -499,14 +498,20 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
     <h2 class="section-title" id="gal-title">Step Inside<br><em>Villa Sue</em></h2>
   </div>
   <div class="gallery-track">
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (6).jpg" alt="Villa Sue pool" loading="lazy"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (19).jpg" alt="Villa Sue bedroom" loading="lazy"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (20).jpg" alt="Villa Sue terrace" loading="lazy"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (22)-2.jpg" alt="Villa Sue living area" loading="lazy"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (26).jpg" alt="Villa Sue exterior" loading="lazy"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (33).jpg" alt="Villa Sue view" loading="lazy"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (77).jpg" alt="Villa Sue garden" loading="lazy"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
-<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (78).jpg" alt="Villa Sue dining" loading="lazy"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (10).jpg" alt="Cocktails and a sun hat on the edge of Villa Sue's private pool, Koh Samui" loading="eager" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (20).jpg" alt="Open-plan living area opening directly onto the private pool terrace at Villa Sue" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (22)-2.jpg" alt="Spacious living room with modular sofa and dining table at Villa Sue, Bophut" loading="lazy" decoding="async" width="1400" height="879"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (26).jpg" alt="Kitchen island and dining table in the open-plan living space of Villa Sue" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (33).jpg" alt="Fully equipped kitchen with oven, induction hob and pool view at Villa Sue" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Ville Sue - new shooting - May 2026 (20).jpg" alt="King-size bedroom with direct access to the pool terrace at Villa Sue" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (55).jpg" alt="Bright double bedroom with workspace and garden view at Villa Sue, Koh Samui" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (73).jpg" alt="Bedroom with en-suite bathroom and sliding doors to the private pool" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (19).jpg" alt="Outdoor bar seating beside a poolside bedroom at Villa Sue, Bophut" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (6).jpg" alt="Living room seating with tropical artwork and garden outlook at Villa Sue" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (77).jpg" alt="Hallway leading to the bedrooms at Villa Sue, Koh Samui" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (78).jpg" alt="Wooden staircase to the upper floor and rooftop terrace at Villa Sue" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/Villa Sue - April 2026 (97).jpg" alt="Bathroom with sea view over Bophut bay at Villa Sue, Koh Samui" loading="lazy" decoding="async" width="1400" height="933"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
+<div class="gallery-item" onclick="openLightbox(this)"><img src="images/view2-photo.jpg" alt="Panoramic view of Big Buddha temple and Bophut bay from Villa Sue's rooftop terrace" loading="lazy" decoding="async" width="1600" height="1066"><div class="gallery-overlay"><div class="gallery-expand"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div></div></div>
   </div>
 </div>
 
@@ -539,7 +544,7 @@ footer{background:var(--dark);padding:70px 60px 40px;color:rgba(255,255,255,.5)}
 </div>
 <p class="section-body" id="book-body">Book directly on Airbnb for instant confirmation and the best rates.</p>
 <div class="book-cta-wrap">
-<a href="https://www.airbnb.com/h/villasue" target="_blank" class="btn-primary book-airbnb-btn">Book on Airbnb</a>
+<a href="https://www.airbnb.com/h/villasue" target="_blank" rel="noopener noreferrer" class="btn-primary book-airbnb-btn">Book on Airbnb</a>
 <span class="book-cta-note">Instant confirmation &nbsp;·&nbsp; Best rate guaranteed</span>
 </div>
 </div>
@@ -615,7 +620,7 @@ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.2!2d100.07418!3d
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Villa Sue · Koh Samui, Thailand</span>
+    <span>© <span id="footer-year">2026</span> Villa Sue · Koh Samui, Thailand</span>
     <span id="footer-rights">All rights reserved</span>
   </div>
 </footer>
@@ -628,14 +633,6 @@ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.2!2d100.07418!3d
   <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
 
-<div class="modal-overlay" id="successModal">
-  <div class="modal-box">
-    <div class="modal-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-    <h3 id="modal-title">Enquiry Sent!</h3>
-    <p id="modal-body">Thank you for your interest in Villa Sue. We'll confirm your availability within 24 hours.</p>
-    <button class="modal-close-btn" id="modal-close-btn" onclick="closeModal()">Close</button>
-  </div>
-</div>
 
 <script>
 if('scrollRestoration' in history) history.scrollRestoration='manual';
@@ -678,16 +675,15 @@ const T = {
     'f2t':'Private Pool','f2b':'1.4m depth, lit at night',
     'f3t':'Panoramic Views','f3b':'Sea & Big Buddha views',
     'f4t':'Near the Beach','f4b':'Bophut beach minutes away',
-    'f5t':'Fully Equipped Kitchen','f5b':'',
-    'f6t':'High-Speed WiFi','f6b':'',
+    'f5t':'Fully Equipped Kitchen','f5b':'Oven, induction hob &amp; island bar',
+    'f6t':'High-Speed WiFi','f6b':'Wi-Fi throughout the villa',
     'gal-label':'Gallery','gal-title':'Step Inside<br><em>Villa Sue</em>',
     'book-label':'Reservations','book-title':'Book Your<br><em>Stay</em>',
     'book-body':'Book directly on Airbnb for instant confirmation and the best rates.',
-    'cal-avail-label':'Availability',
-    'leg-avail':'Available','leg-booked':'Booked',
-    'ci-label':'Check-in','co-label':'Check-out','guests-label':'Guests',
-    'book-btn':'Check Availability',
-    'ota-airbnb':'Also on Airbnb','ota-booking':'Also on Booking.com',
+    
+    
+    
+    
     'loc-label':'Location','loc-title':'Bophut,<br><em>Koh Samui</em>',
     'loc-body':"Located in the charming Bophut area, Villa Sue offers the perfect balance of peaceful seclusion and easy access to the island's best beaches, restaurants, and landmarks.",
     'nb1n':'Bophut Beach','nb1d':'Calm waters, local beach',
@@ -697,10 +693,7 @@ const T = {
     'nb5n':"Fisherman's Village",'nb5d':'Waterfront night market & restaurants',
     'footer-tag':"A private sanctuary on Koh Samui's north shore. Where luxury meets the tropical spirit of Thailand.",
     'footer-nav-h':'Navigation','footer-con-h':'Contact','footer-rights':'All rights reserved',
-    'fnav1':'The Villa','fnav2':'Gallery','fnav3':'Location','fnav4':'Book Now',
-    'modal-title':'Enquiry Sent!',
-    'modal-body':'Thank you for your interest in Villa Sue. We will confirm your availability within 24 hours.',
-    'modal-close-btn':'Close'
+    'fnav1':'The Villa','fnav2':'Gallery','fnav3':'Location','fnav4':'Book Now'
   },
   de: {
     'hero-eyebrow':'Koh Samui · Bophut · Thailand',
@@ -715,16 +708,15 @@ const T = {
     'f2t':'Privater Pool','f2b':'1,4 m Tiefe, nachts beleuchtet',
     'f3t':'Panoramablick','f3b':'Meer & Großer Buddha',
     'f4t':'Strandnähe','f4b':'Bophut Beach in wenigen Minuten',
-    'f5t':'Voll ausgestattete Küche','f5b':'',
-    'f6t':'Highspeed-WLAN','f6b':'',
+    'f5t':'Voll ausgestattete Küche','f5b':'Backofen, Induktionskochfeld &amp; Kücheninsel',
+    'f6t':'Highspeed-WLAN','f6b':'WLAN in der gesamten Villa',
     'gal-label':'Galerie','gal-title':'Betreten Sie<br><em>die Villa Sue</em>',
     'book-label':'Reservierung','book-title':'Buchen Sie<br><em>Ihren Aufenthalt</em>',
     'book-body':'Buchen Sie direkt über Airbnb für sofortige Bestätigung und die besten Preise.',
-    'cal-avail-label':'Verfügbarkeit',
-    'leg-avail':'Verfügbar','leg-booked':'Belegt',
-    'ci-label':'Anreise','co-label':'Abreise','guests-label':'Gäste',
-    'book-btn':'Verfügbarkeit prüfen',
-    'ota-airbnb':'Auch auf Airbnb','ota-booking':'Auch auf Booking.com',
+    
+    
+    
+    
     'loc-label':'Lage','loc-title':'Bophut,<br><em>Koh Samui</em>',
     'loc-body':'Im charmanten Bophut-Viertel bietet die Villa Sue die perfekte Balance zwischen ruhiger Abgeschiedenheit und einfachem Zugang zu den schönsten Stränden, Restaurants und Sehenswürdigkeiten der Insel.',
     'nb1n':'Bophut Beach','nb1d':'Ruhiges Wasser, lokaler Strand',
@@ -734,10 +726,7 @@ const T = {
     'nb5n':"Fisherman's Village",'nb5d':'Nachtmarkt & Restaurants am Wasser',
     'footer-tag':'Ein privates Refugium an Koh Samuis Nordküste. Wo Luxus auf den tropischen Geist Thailands trifft.',
     'footer-nav-h':'Navigation','footer-con-h':'Kontakt','footer-rights':'Alle Rechte vorbehalten',
-    'fnav1':'Die Villa','fnav2':'Galerie','fnav3':'Lage','fnav4':'Buchen',
-    'modal-title':'Anfrage gesendet!',
-    'modal-body':'Vielen Dank für Ihr Interesse an der Villa Sue. Wir bestätigen Ihre Verfügbarkeit innerhalb von 24 Stunden.',
-    'modal-close-btn':'Schließen'
+    'fnav1':'Die Villa','fnav2':'Galerie','fnav3':'Lage','fnav4':'Buchen'
   },
   ru: {
     'hero-eyebrow':'Ко Самуи · Бопхут · Таиланд',
@@ -752,16 +741,15 @@ const T = {
     'f2t':'Частный бассейн','f2b':'Глубина 1,4 м, ночная подсветка',
     'f3t':'Панорамный вид','f3b':'Море и Большой Будда',
     'f4t':'Близко к пляжу','f4b':'Пляж Бопхут в нескольких минутах',
-    'f5t':'Полностью оборудованная кухня','f5b':'',
-    'f6t':'Высокоскоростной Wi-Fi','f6b':'',
+    'f5t':'Полностью оборудованная кухня','f5b':'Духовка, индукционная плита и барная стойка',
+    'f6t':'Высокоскоростной Wi-Fi','f6b':'Wi-Fi во всей вилле',
     'gal-label':'Галерея','gal-title':'Войдите в<br><em>Villa Sue</em>',
     'book-label':'Бронирование','book-title':'Забронируйте<br><em>ваш отдых</em>',
     'book-body':'Бронируйте напрямую через Airbnb для мгновенного подтверждения и лучших цен.',
-    'cal-avail-label':'Доступность',
-    'leg-avail':'Свободно','leg-booked':'Занято',
-    'ci-label':'Заезд','co-label':'Выезд','guests-label':'Гости',
-    'book-btn':'Проверить наличие',
-    'ota-airbnb':'Также на Airbnb','ota-booking':'Также на Booking.com',
+    
+    
+    
+    
     'loc-label':'Расположение','loc-title':'Бопхут,<br><em>Ко Самуи</em>',
     'loc-body':'В очаровательном районе Бопхут Villa Sue предлагает идеальный баланс уединённого спокойствия и удобного доступа к лучшим пляжам, ресторанам и достопримечательностям острова.',
     'nb1n':'Пляж Бопхут','nb1d':'Спокойная вода, местный пляж',
@@ -771,10 +759,7 @@ const T = {
     'nb5n':"Fisherman's Village",'nb5d':'Ночной рынок и рестораны у воды',
     'footer-tag':'Частное убежище на северном берегу Ко Самуи. Где роскошь встречается с тропическим духом Таиланда.',
     'footer-nav-h':'Навигация','footer-con-h':'Контакты','footer-rights':'Все права защищены',
-    'fnav1':'Вилла','fnav2':'Галерея','fnav3':'Расположение','fnav4':'Бронирование',
-    'modal-title':'Запрос отправлен!',
-    'modal-body':'Спасибо за интерес к Villa Sue. Мы подтвердим наличие свободных мест в течение 24 часов.',
-    'modal-close-btn':'Закрыть'
+    'fnav1':'Вилла','fnav2':'Галерея','fnav3':'Расположение','fnav4':'Бронирование'
   },
   fr: {
     'hero-eyebrow':'Koh Samui · Bophut · Thaïlande',
@@ -789,16 +774,15 @@ const T = {
     'f2t':'Piscine privée','f2b':'1,4 m de profondeur, éclairée la nuit',
     'f3t':'Vues panoramiques','f3b':'Mer et Grand Bouddha',
     'f4t':'Proche de la plage','f4b':'Plage de Bophut à quelques minutes',
-    'f5t':'Cuisine entièrement équipée','f5b':'',
-    'f6t':'Wi-Fi haut débit','f6b':'',
+    'f5t':'Cuisine entièrement équipée','f5b':'Four, plaque à induction &amp; îlot bar',
+    'f6t':'Wi-Fi haut débit','f6b':'Wi-Fi dans toute la villa',
     'gal-label':'Galerie','gal-title':'Entrez dans<br><em>la Villa Sue</em>',
     'book-label':'Réservations','book-title':'Réservez<br><em>votre séjour</em>',
     'book-body':'Réservez directement sur Airbnb pour une confirmation instantanée et les meilleurs tarifs.',
-    'cal-avail-label':'Disponibilité',
-    'leg-avail':'Disponible','leg-booked':'Réservé',
-    'ci-label':'Arrivée','co-label':'Départ','guests-label':'Voyageurs',
-    'book-btn':'Vérifier la disponibilité',
-    'ota-airbnb':'Aussi sur Airbnb','ota-booking':'Aussi sur Booking.com',
+    
+    
+    
+    
     'loc-label':'Emplacement','loc-title':'Bophut,<br><em>Koh Samui</em>',
     'loc-body':"Dans le charmant quartier de Bophut, Villa Sue offre le parfait équilibre entre sérénité et accès facile aux plus belles plages, restaurants et sites de l'île.",
     'nb1n':'Plage de Bophut','nb1d':'Eaux calmes, plage locale',
@@ -808,15 +792,32 @@ const T = {
     'nb5n':"Fisherman's Village",'nb5d':'Marché nocturne et restaurants',
     'footer-tag':"Un sanctuaire privé sur la côte nord de Koh Samui. Là où le luxe rencontre l'âme tropicale de la Thaïlande.",
     'footer-nav-h':'Navigation','footer-con-h':'Contact','footer-rights':'Tous droits réservés',
-    'fnav1':'La Villa','fnav2':'Galerie','fnav3':'Emplacement','fnav4':'Réserver',
-    'modal-title':'Demande envoyée !',
-    'modal-body':'Merci de votre intérêt pour Villa Sue. Nous confirmerons votre disponibilité sous 24 heures.',
-    'modal-close-btn':'Fermer'
-  },
+    'fnav1':'La Villa','fnav2':'Galerie','fnav3':'Emplacement','fnav4':'Réserver'
+    
+  }
 };
-
 let currentLang = 'en';
+const SUPPORTED_LANGS = ['en','de','ru','fr'];
+const CANONICAL_BASE = 'https://www.villasue.com/';
+
+// Canonical + og:url kovessek a tenylegesen megjelenitett nyelvet, kulonben
+// a hreflang alternativak olyan URL-re mutatnak, ami mas tartalmat ad vissza.
+function _syncLangUrl(lang) {
+  const href = lang === 'en' ? CANONICAL_BASE : CANONICAL_BASE + '?lang=' + lang;
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.href = href;
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.content = href;
+  try {
+    const url = new URL(window.location.href);
+    if (lang === 'en') url.searchParams.delete('lang');
+    else url.searchParams.set('lang', lang);
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
+  } catch (e) {}
+}
+
 function setLang(lang) {
+  if (!SUPPORTED_LANGS.includes(lang)) lang = 'en';
   currentLang = lang;
   ['EN','DE','RU','FR'].forEach(l => document.getElementById('btn'+l).classList.toggle('active', lang===l.toLowerCase()));
   document.documentElement.lang = lang;
@@ -825,16 +826,36 @@ function setLang(lang) {
     const el = document.getElementById(id);
     if (el) el.innerHTML = val;
   }
+  try { localStorage.setItem('villasue-lang', lang); } catch (e) {}
+  _syncLangUrl(lang);
 }
+
+// Nyelv sorrend: ?lang= parameter > korabbi valasztas > bongeszo nyelve > angol
+(function initLang() {
+  let lang = null;
+  try {
+    const param = new URLSearchParams(window.location.search).get('lang');
+    if (param && SUPPORTED_LANGS.includes(param.toLowerCase())) lang = param.toLowerCase();
+  } catch (e) {}
+  if (!lang) {
+    try {
+      const stored = localStorage.getItem('villasue-lang');
+      if (stored && SUPPORTED_LANGS.includes(stored)) lang = stored;
+    } catch (e) {}
+  }
+  if (!lang) {
+    const nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+    if (SUPPORTED_LANGS.includes(nav)) lang = nav;
+  }
+  setLang(lang || 'en');
+})();
 
 // ─── HERO VIDEO + title reveal
 const video = document.getElementById('heroVideo');
 const heroContent = document.getElementById('heroContent');
 const scrollHint = document.getElementById('scrollHint');
-
 var _videoMetaReady = false;
 video.addEventListener('loadedmetadata', () => { _videoMetaReady = true; });
-
 window.startHero = function() {
   if (_videoMetaReady) { video.play(); }
   else { video.addEventListener('loadedmetadata', () => video.play(), {once:true}); }
@@ -878,8 +899,6 @@ document.querySelectorAll('#navLinks a').forEach(a => {
   });
 });
 
-function closeModal() { document.getElementById('successModal').classList.remove('open'); }
-
 // ─── LIGHTBOX
 let _lbImgs = [], _lbIdx = 0;
 function openLightbox(el) {
@@ -915,8 +934,11 @@ document.addEventListener('keydown', e => {
     if (e.key==='ArrowLeft') lightboxNav(-1);
     else if (e.key==='ArrowRight') lightboxNav(1);
     else if (e.key==='Escape') closeLightbox();
-  } else if (e.key==='Escape') closeModal();
+  }
 });
+
+const _yearEl = document.getElementById('footer-year');
+if (_yearEl) _yearEl.textContent = new Date().getFullYear();
 
 // ─── SCROLL REVEAL
 const obs = new IntersectionObserver((entries) => {
